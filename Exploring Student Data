@@ -1,66 +1,69 @@
-# Load libraries
+# Loading libraries used
 import pandas as pd
 import numpy as np
 import codecademylib3
 import matplotlib.pyplot as plt
 import seaborn as sns
 
-# Import data
+# Importing data
 students = pd.read_csv('students.csv')
 
-# Print first few rows of data
+# Viewing the first 5 rows
 print(students.head())
-# Print summary statistics for all columns
+# Figuring out summary statistics for all columns
 print(students.describe(include='all'))
-# Calculate mean
+# Calculating the mean
 print(students.math_grade.mean())
-# Calculate median
+# Calculating the median
 print(students.math_grade.median())
-# Calculate mode
+# Calculating the mode
 print(students.math_grade.mode()[0])
-# Calculate range
+# Calculating the range
 print(students.math_grade.max() - students.math_grade.min())
-# Calculate standard deviation
+# Calculating the standard deviation
 print(students.math_grade.std())
-# Calculate MAD
+# Calculating the MAD
 print(students.math_grade.mad())
-# Create a histogram of math grades
+
+# Creating a histogram of math grades
 
 sns.histplot(x='math_grade',data=students)
 plt.show()
 plt.clf()
 
-# Create a box plot of math grades
+# Creating a box plot of math grades
 
 sns.boxplot(x='math_grade',data=students)
 plt.show()
 plt.clf()
 
-# Calculate number of students with mothers in each job category
+# Calculating the number of students with mothers in each job category
 print(students.Mjob.value_counts())
-# Calculate proportion of students with mothers in each job category
+# Calculating the proportion of students with mothers in each job category
 print(students.Mjob.value_counts(normalize=True))
-# Create bar chart of Mjob
+# Creating bar chart of Mjob
 
 sns.countplot(x='Mjob',data=students)
 plt.show()
 plt.clf()
 
-# Create pie chart of Mjob
+# Creating pie chart of Mjob
 
 students.Mjob.value_counts().plot.pie()
 plt.show()
 plt.clf()
 
-#Extra
+# Creating a pie chart of area
 students.address.value_counts().plot.pie()
 plt.show()
 plt.clf()
 
+# Creating a histogram based on absenses 
 sns.histplot(x='absences',data=students)
 plt.show()
 plt.clf()
 
+# Creating a countplot based on jobs the fathers hold
 sns.countplot(x='Fjob',data=students)
 plt.show()
 plt.clf()
