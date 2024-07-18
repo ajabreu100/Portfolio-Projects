@@ -1,0 +1,21 @@
+--Viewing first 10 rows for import confirmation
+SELECT * 
+FROM ev_data
+LIMIT 10;
+--How many vehciles from each state are registered though Washington DOL
+SELECT state, COUNT(*) AS number_registered
+FROM ev_data
+GROUP BY 1
+ORDER BY 2 DESC;
+--Top 5 EV vehicle models that perform with the most milage
+SELECT make, model, electric_range
+FROM ev_data
+GROUP BY 2
+ORDER BY 3 DESC
+LIMIT 5;
+--What was the most common zip code 
+SELECT postal_code, COUNT(*) AS occurances
+FROM ev_data
+GROUP BY 1
+ORDER BY 2 DESC
+LIMIT 10;
